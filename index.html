@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>अजगर</title>
+    <script src="./script.js" type="module" defer></script>
+    <script src="./wrapper.js" type="module" defer></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.28.0/full/pyodide.js"></script>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="bg-zinc-900 text-white overflow-hidden font-mono">
+    <!-- Header -->
+    <div class="bg-zinc-800 px-4 py-3 flex justify-between items-center">
+      <h1 class="text-lg font-semibold">निर्देश कार्यापुस्तिका</h1>
+
+      <div id="headerActions" class="flex gap-2">
+        <button id="run" class="px-4 py-1 rounded text-sm hover:bg-zinc-900">
+          आरम्भ
+        </button>
+        <button id="save" class="px-4 py-1 rounded text-sm hover:bg-zinc-900">
+          सुरक्षित
+        </button>
+        <button id="open" class="px-4 py-1 rounded text-sm hover:bg-zinc-900">
+          खोलें
+        </button>
+        <button id="clear" class="px-4 py-1 rounded text-sm hover:bg-zinc-900">
+          स्वच्छ
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="flex flex-col h-[calc(100vh-56px)] p-2 gap-2">
+      <!-- Top: Code + Output -->
+      <div class="flex flex-1 gap-2 resize-x min-h-[200px]">
+        <!-- Code Section -->
+        <div
+          class="flex-1 bg-zinc-900 border border-zinc-700 rounded p-2 flex flex-col resize-x overflow-auto"
+        >
+          <div class="mb-1 text-sm text-zinc-400">निर्देश</div>
+          <textarea
+            id="code"
+            class="flex-1 bg-zinc-800 rounded p-2 resize-none outline-none h-full"
+            spellcheck="false"
+          >
+# यहां से लिखें
+</textarea
+          >
+        </div>
+
+        <!-- Output Section -->
+        <div
+          class="flex-1 bg-zinc-900 border border-zinc-700 rounded p-2 flex flex-col resize-x overflow-auto"
+        >
+          <div class="mb-1 text-sm text-zinc-400">परिणाम</div>
+          <textarea
+            id="output"
+            readonly
+            class="flex-1 bg-zinc-800 rounded p-2 resize-none outline-none text-green-400 h-full"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Bottom: Input + Error -->
+      <div class="flex h-[30%] gap-2 min-h-[100px]">
+        <!-- Input Section -->
+        <div
+          class="flex-1 bg-zinc-900 border border-zinc-700 rounded p-2 flex flex-col resize-x overflow-auto "
+        >
+          <div class="mb-1 text-sm text-zinc-400">प्रविष्टि</div>
+          <textarea
+            id="input"
+            class="flex-1 bg-zinc-800 rounded p-2 resize-none outline-none h-full"
+            spellcheck="false"
+          ></textarea>
+        </div>
+        <div
+          class="flex-1 bg-zinc-900 border border-zinc-700 rounded p-2 flex flex-col resize-x overflow-auto"
+        >
+          <div class="mb-1 text-sm text-zinc-400">प्रविष्टि भंडार</div>
+          <textarea
+            id="inputBuffer"
+            class="flex-1 bg-zinc-800 rounded p-2 resize-none outline-none h-full"
+            spellcheck="false"
+            readonly
+          ></textarea>
+        </div>
+
+        <!-- Error Section -->
+        <div
+          class="flex-1 bg-zinc-900 border border-zinc-700 rounded p-2 flex flex-col resize-x overflow-auto"
+        >
+          <div class="mb-1 text-sm text-zinc-400">त्रुटिया</div>
+          <textarea
+            id="error"
+            readonly
+            class="flex-1 bg-zinc-800 rounded p-2 resize-none outline-none text-red-400 h-full"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div id="overlay" class="overlay">
+      <span>Loading...</span>
+    </div>
+  </body>
+</html>
