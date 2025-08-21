@@ -62,6 +62,7 @@ const keywordList = {
   दशमलव: "float",
   बूलियन: "bool",
   सीमा: "range",
+  गिनती: "count",
 };
 
 const overlay = document.getElementById("overlay");
